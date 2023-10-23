@@ -10,29 +10,28 @@
 int main(int argc, char** argv) {
     if (argc < 2) {
         std::cerr << "File Path Not Given" << std::endl;
-        return 1;
+        rexit(1);
     }
 
     char* path = argv[1];
 
-    int fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-    if (fd < 0) {
-        std::cerr << "Error opening the file: " << strerror(errno) << std::endl;
-        return 1;
+    int fd1 = open(path, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    int fd2 = dup(fd1);
+    if (fd1<0 || fd2<0)  {
+        std::cerr << strerror(errno)<<std::endl;
+        exit(errno);
     }
 
     int fd1 = dup(fd);
     int fd2 = dup(fd);
 
     
-    dup2(fd1, 1); 
-    dup2(fd2, 2); 
+    std::string l1 = "first line\n"; 
+    std::string l2 = "second line\n";
 
-    std::cout << "first line" << std::endl;
-    std::cerr << "second line" << std::endl;
+    write(fd1, l1.c_str(),l1.lenght());
+    write(fd2, l2.c_str(),l2.lenght());
 
-
-    close(fd);
     close(fd1);
     close(fd2);
 

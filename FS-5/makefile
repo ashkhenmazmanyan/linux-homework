@@ -1,10 +1,6 @@
 all: main
 
 main: main.o
-	g++ main.o-o main
-
-main.o: main.cpp
-	g++ main.cpp -c
-
+	g++ main.cpp -o main
 clean:
 	rm*.o
