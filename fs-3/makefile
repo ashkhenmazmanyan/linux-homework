@@ -1,10 +1,10 @@
-all: main
+all: hacker_rm
 
-main: main.o
-	g++ main.o-o main
+hacker_rm: hacker_rm.o
+	g++ hacker_rm.o-o hacker_rm
 
-main.o: main.cpp
-	g++ main.cpp -c
+hacker_rm.o: hacker_rm.cpp
+	g++ hacker_rm.cpp -c
 
 clean:
 	rm*.o
