@@ -58,6 +58,10 @@ int main(int argc, char** argv){
         std::cerr << strerror(errno) << std::endl;
     }
 
+    int close_f2 = close(fd2);
+    if(close_f2<0){
+        std::cerr << strerror(errno) << std::endl;
+    }
     
     return 0;
 }
