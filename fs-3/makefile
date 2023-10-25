@@ -7,4 +7,4 @@ hacker_rm.o: hacker_rm.cpp
 	g++ hacker_rm.cpp -c
 
 clean:
-	rm*.o
+	rm*.o hacker_rm
