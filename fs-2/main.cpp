@@ -43,8 +43,6 @@ int main(int argc, char** argv){
         if(read_bytes == 0){
             break;
         }
-        buffer[read_bytes] = '\0';
-            std::cout << buffer;
         
         int written_bytes = write(fd2, buffer, read_bytes);
         if(written_bytes<0){
