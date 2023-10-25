@@ -26,7 +26,6 @@ int main(int argc, char** argv){
     char buffer[buf_size +1 ];
 
     char* path2 = argv[2];
-    int fd = open(path,O_RDONLY);
     
     int fd2 = open(path2,O_WRONLY | O_CREAT | O_TRUNC, S_IWUSR | S_IRGRP | S_IROTH);
     if(fd2<0){
