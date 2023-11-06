@@ -74,5 +74,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << "TOTAL BYTES OF HOLES" <<  holesSize << "BYTES" << std::endl;
 
+
+    return 0;
 }
 
