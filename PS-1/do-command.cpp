@@ -43,13 +43,13 @@ void do_command(char** argv) {
     }
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char* argv[]) {
     if (argc < 2) {
         std::cerr << "Usage: " << argv[0] << " command [args...]" << std::endl;
-        return EXIT_FAILURE;
+        exit(1);
     }
 
     do_command(argv + 1);
 
-    return EXIT_SUCCESS;
+    return 0;
 }
